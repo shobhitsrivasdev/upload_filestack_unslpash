@@ -1,0 +1,100 @@
+.search-button{
+    width: 50%;
+    margin: auto;
+    margin-top: 10%;
+    height:70px;
+}
+.modal-dialog{
+    width:700px !important;
+    
+}
+.modal-body{
+    min-height:400px;
+}
+.image-row{
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+.image-upload{
+    padding-top: 10px;
+    padding-bottom: 20px;
+    margin-bottom:5px;
+
+}
+.upl{
+    margin-bottom:5px;
+}
+
+
+.progress-bar {
+    width: 0;
+    animation: progress 1.5s ease-in-out forwards;
+
+  } 
+  .title {
+    opacity: 0;
+    animation: show 0.35s forwards ease-in-out 0.5s;
+  }
+  
+  @keyframes progress {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  } 
+  @keyframes show  {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .progress{
+    margin-top: 5px;
+    margin-left: 5px;
+    max-width:150px;
+  }
+  .uploaded{
+    margin: auto;
+    width: 60%;
+    border: 3px solid grey;
+    padding: 10px;
+    margin-top:50px;
+    margin-bottom:10px;
+  }
+  .uploaded-label{
+     font-size:15px;
+     
+  }
+  .upload-btn{
+    margin-top: 5px;
+    max-width:100%;     
+
+  }
+  .search-input{
+    width: 85%;
+    margin-left: 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding-left:10px;
+  }
+  .upd{
+      margin-bottom:5px;
+  }
+
+  @media screen and (max-width:720px) {
+      .modal-footer{
+          padding-right:40%
+      }
+      .search-input{
+          width:35%
+      }
+      .modal-dialog{
+        width:85% !important;
+        
+    }
+  }

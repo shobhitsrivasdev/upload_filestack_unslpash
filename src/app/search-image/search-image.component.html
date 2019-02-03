@@ -1,0 +1,81 @@
+<button type="button" class="btn btn-secondary btn-lg btn-block" data-toggle="modal" data-target="#myModal">CLick to
+  Search and
+  Upload Your Images</button>
+
+
+<div class="uploaded">
+  <label class=" uploaded-label">Your Uploaded Images</label>
+  <div class="row image-upload">
+    <div class="col-md-4 col-sm-6 col-lg-3 upl" *ngFor="let up of UploadedValues|slice : 0 :4 ">
+      <img [src]="up" class="my-icon back-icon" width="150px" height="100px">
+    </div>
+  </div>
+  <div class="row image-upload">
+    <div class="col-md-4 col-sm-6 col-lg-3 upl" *ngFor="let up of UploadedValues|slice : 4 : 9">
+      <img [src]="up" class="my-icon back-icon" width="150px" height="100px">
+    </div>
+  </div>
+  <div *ngIf="UploadedValues.length==0"> You have no uploaded images</div>
+</div>
+<div class="modal fade bd-example-modal-lg" id="myModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-body">
+
+        <div>
+          <label>Search</label>
+          <input id="query" name="query" type="text" autocomplete="off" class="search-input" [(ngModel)]="query"
+            (ngModelChange)="search()" />
+        </div>
+
+        <div class="row image-row">
+          <div class="col-md-4 col-sm-6 col-lg-3 upd" *ngFor="let img of results|slice : 1 : 5">
+            <img [src]="img.urls.thumb" class="my-icon back-icon" width="150px" height="100px">
+            <div>
+              <button (click)="upload(img)" *ngIf="img.upload==false" class="btn upload-btn"><i class="fa fa-upload"
+                  aria-hidden="true"></i>Upload</button>
+            </div>
+            <div class="progress" *ngIf="img.upload==true">
+              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
+                style="max-width: 150px;">
+                <span class="title">100%</span><br>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row image-row">
+          <div class="col-md-4 col-sm-6 col-lg-3 upd" *ngFor="let img of results|slice : 6 : 10">
+            <img [src]="img.urls.thumb" class="my-icon back-icon" width="150px" height="100px">
+            <div>
+              <button (click)="upload(img)" *ngIf="img.upload==false" class="btn upload-btn"><i class="fa fa-upload"
+                  aria-hidden="true"></i>Upload</button>
+            </div>
+            <div class="progress" *ngIf="img.upload==true">
+              <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
+                style="max-width: 100%">
+                <span class="title">100%</span><br>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row image-row" *ngIf="results.length==0">
+            <div class="col-md-4 col-sm-6 col-lg-3 upd" >
+             <label>No results Found</label>
+            </div>
+          </div>
+          <div class="modal-footer">
+              <div class="total-value btn">Total Uploads = {{UploadedValues.length}}</div>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Submit</button>
+            </div>
+      </div>
+      
+
+
+
+    </div>
+  </div>
+</div>
